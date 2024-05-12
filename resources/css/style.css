@@ -1,0 +1,183 @@
+#Tasks *,
+#FinishTasks * {
+    box-sizing: border-box;
+}
+
+#Tasks {
+    min-height: 40%;
+    max-height: 55%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+#FinishTasks {
+    min-height: 40%;
+    max-height: 55%;
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    height: 100%;
+}
+
+button {
+    border: none;
+    padding: var(--input-padding-vertical) var(--input-padding-horizontal);
+    width: 100%;
+    text-align: center;
+    outline: 1px solid transparent;
+    outline-offset: 2px !important;
+    color: var(--vscode-button-foreground);
+    background: var(--vscode-button-background);
+}
+
+button:hover {
+    cursor: pointer;
+    background: var(--vscode-button-hoverBackground);
+}
+
+button:focus {
+    outline-color: var(--vscode-focusBorder);
+}
+
+button.secondary {
+    color: var(--vscode-button-secondaryForeground);
+    background: var(--vscode-button-secondaryBackground);
+}
+
+button.secondary:hover {
+    background: var(--vscode-button-secondaryHoverBackground);
+}
+
+input:not([type='checkbox']),
+textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    font-family: var(--vscode-font-family);
+    padding: var(--input-padding-vertical) var(--input-padding-horizontal);
+    color: var(--vscode-input-foreground);
+    outline-color: var(--vscode-input-border);
+    background-color: transparent;
+    /* background-color: var(--vscode-input-background); */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--vscode-input-placeholderForeground);
+}
+
+article.Task {
+    width: 100%;
+    height: 5vh;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 10% 80% 10%;
+    position: relative;
+    margin: max(7px, 2%) 0;
+    background-color: var(--vscode-input-background);
+    border-bottom: 1px solid #999;
+}
+
+.Task input[type="checkbox"] {
+    grid-column: 1;
+    grid-row: 1;
+    opacity: 0;
+    position: absolute;
+    z-index: 3;
+    width: 10%;
+    height: 100%;
+    margin: 0;
+}
+
+.Task svg.SVG_Check_ON {
+    display: none;
+    opacity: 0;
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.Task svg.SVG_Check_OFF {
+    display: block;
+    opacity: 1;
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.Task input[type="checkbox"]:checked~svg.SVG_Check_ON {
+    display: block;
+    opacity: 1;
+}
+
+.Task input[type="checkbox"]:checked~svg.SVG_Check_OFF {
+    display: none;
+    opacity: 0;
+
+}
+
+.Task button.DeleteTask {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.Task button.DeleteTask:hover{
+    opacity: .8;
+}
+
+.Task input.TaskText {
+    grid-row: 1;
+    grid-column: 2;
+    padding-inline-start: 5%;
+    box-sizing: border-box;
+}
+
+section.TaskBanner{
+    /* background-color: crimson; */
+    height: 2%;
+    min-height: 16px;
+    width: 100%;
+
+}
+
+section.TaskBanner.Prinsipal{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+section.TaskBanner.Prinsipal span{
+    height: 16px;
+    width: 16px;
+    background-color: #999;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+section.TaskBanner.Prinsipal svg{
+    height: 100%;
+    margin: 0 5px;
+}
+
+
+
+section.TextBanner{
+    opacity: .6;
+    padding-left: 6px;
+    user-select: none;
+}
